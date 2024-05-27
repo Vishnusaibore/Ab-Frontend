@@ -22,7 +22,7 @@ function App() {
   //Register Route
   function createAccount(newUser){
     async function createUser(User){
-        const register =await axios.post('http://localhost:5000/api/register',User)
+        const register =await axios.post('https://animebloggerserver.onrender.com/api/register',User)
         let isregisterdMessage = register.data.message
         setLogIn(register.data.stat)
        alert(isregisterdMessage)
@@ -50,7 +50,7 @@ function App() {
   //Login Route
   function verifyUser(userData){
     async function getUserData(userCredentials){
-    const logInfo = await axios.post('http://localhost:5000/api/login',userCredentials)
+    const logInfo = await axios.post('https://animebloggerserver.onrender.com/api/login',userCredentials)
     alert(logInfo.data.message)
     const responseToken= logInfo.data.token
     const authToken = responseToken // Get the auth token from the server
@@ -75,7 +75,7 @@ function App() {
   //Password Reset Route
   function resetPassword(resetinfo){
     async function resetUserPassword(userResetInfo) {
-      const updateInfo = await axios.patch('http://localhost:5000/api/forgotpassword',userResetInfo)
+      const updateInfo = await axios.patch('https://animebloggerserver.onrender.com/api/forgotpassword',userResetInfo)
       alert(updateInfo.data.username+ " "+updateInfo.data.message)
       Logout()
     }
@@ -87,7 +87,7 @@ function App() {
   //Creating a New post
   function createPost(newPost,C_user){
     async function postData(currentPost,current_User){
-      const postStatus =await axios.post('http://localhost:5000/api/posts',currentPost,{headers:{
+      const postStatus =await axios.post('https://animebloggerserver.onrender.com/api/posts',currentPost,{headers:{
         'header-1':current_User }})
       alert(postStatus.data.message)
       // fetchPosts(); //It wiil fetch the data after data inserted into database
@@ -98,7 +98,7 @@ function App() {
   //Fetching Posts from server
   async function fetchPosts(){
     try {
-      const response = await axios.get('http://localhost:5000/api/posts');
+      const response = await axios.get('https://animebloggerserver.onrender.com/api/posts');
       setPost(response.data);
     } catch (error) {
       console.error('Error fetching notes:', error);
@@ -112,7 +112,7 @@ function App() {
 //Editing a Post
 function editPost(p_id,blog){
   async function updatePost(PID,blogPost){
-    const url="http://localhost:5000/api/edit-post/"+PID
+    const url="https://animebloggerserver.onrender.com/api/edit-post/"+PID
     if(isLoggedIn===false){
         alert("Please SignIn and Try Again")
     }else{
@@ -131,7 +131,7 @@ function editPost(p_id,blog){
 //For Deleting a post
 function deletePost(pID){
   async function removePost(pid){
-    const url="http://localhost:5000/api/delete-post/"+pid
+    const url="https://animebloggerserver.onrender.com/api/delete-post/"+pid
     if(isLoggedIn===false){
         alert("Please SignIn and Try Again")
     }else{

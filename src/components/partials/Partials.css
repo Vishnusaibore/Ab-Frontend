@@ -1,6 +1,6 @@
 /* For Header */
 h5{
-    color:#ff8c1a;
+    color:cyan;
     font-family: cursive;
     text-align: left;
     padding-top: 5px;
@@ -10,7 +10,7 @@ h5{
 
 }
 h5:hover{
-    color:cyan;
+    color:ghostwhite
 }
 /* For Fotter */
 h6{
